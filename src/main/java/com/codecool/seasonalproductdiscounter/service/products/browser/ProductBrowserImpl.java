@@ -97,6 +97,7 @@ public class ProductBrowserImpl implements ProductBrowser {
                 }));
     }
 
+    private double getMinimumPrice() {
         return provider.getProducts().stream()
                 .mapToDouble(Product::price)
                 .min()
@@ -133,5 +134,7 @@ public class ProductBrowserImpl implements ProductBrowser {
                 .sorted(Comparator.comparing(Product::price))
                 .collect(toList());
     }
+
+}
 
 

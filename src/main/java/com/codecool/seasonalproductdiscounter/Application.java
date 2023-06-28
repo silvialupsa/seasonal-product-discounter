@@ -21,7 +21,7 @@ public class Application {
         ProductStatistics productStatistics = new ProductStatisticsImpl(productBrowser);
         DiscountProvider discountProvider = new DiscountProviderImpl();
         DiscountService discounterService = new DiscountServiceImpl(discountProvider);
-        OfferService offerService = null;
+        OfferService offerService = new OfferServiceImpl(productProvider.getProducts());
         AuthenticationService authenticationService = null;
         ProductsUiFactory productsUiFactory = new ProductsUiFactory(authenticationService, productBrowser);
 
