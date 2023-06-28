@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 public class OffersUi extends UiBase{
     private final OfferService offerService;
-    protected OffersUi(AuthenticationService authenticationService, String title, OfferService offerService) {
+    public OffersUi(AuthenticationService authenticationService, String title, OfferService offerService) {
         super(authenticationService, title);
         this.offerService = offerService;
     }
