@@ -4,6 +4,7 @@ import com.codecool.seasonalproductdiscounter.ui.UiBase;
 import com.codecool.seasonalproductdiscounter.ui.factory.UiFactoryBase;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class UiSelector {
     private final List<UiFactoryBase> factories;
@@ -27,8 +28,10 @@ public class UiSelector {
     }
 
     private static int getIntInput() {
-    
-        return 0;
+        Scanner myObj = new Scanner(System.in);
+        System.out.println("Please choose a number from the screen:");
+        int number = myObj.nextInt();
+        return number;
     }
 }
 
