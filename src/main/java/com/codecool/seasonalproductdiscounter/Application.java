@@ -11,7 +11,6 @@ import com.codecool.seasonalproductdiscounter.ui.factory.*;
 import com.codecool.seasonalproductdiscounter.ui.selector.UiSelector;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -31,7 +30,7 @@ public class Application {
         factories.add(productsUiFactory);
 
 
-        UiSelector uiSelector = new UiSelector(factories);
+        UiSelector uiSelector = new UiSelector(factories, authenticationService);
         UiBase ui = uiSelector.select();
         if (ui.authenticate())
         {

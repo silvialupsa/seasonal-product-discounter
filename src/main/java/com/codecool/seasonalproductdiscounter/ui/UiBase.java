@@ -26,17 +26,8 @@ public abstract class UiBase {
     }
 
     protected User getUser() {
-        Scanner myObj = new Scanner(System.in);
-        System.out.println("Enter username");
-
-        String userName = myObj.nextLine();
-        System.out.println("Username is: " + userName);
-
-        Scanner myObj2 = new Scanner(System.in);
-        System.out.println("Enter password");
-
-        String password = myObj2.nextLine();
-        System.out.println("Your password is: " + password);
+        String userName = getTextInput("Enter username");
+        String password = getTextInput("Enter password");
         return new User(userName, password);
     }
 
