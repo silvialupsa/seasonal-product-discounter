@@ -2,6 +2,7 @@ package com.codecool.seasonalproductdiscounter.ui.factory;
 
 import com.codecool.seasonalproductdiscounter.service.products.statistics.ProductStatistics;
 import com.codecool.seasonalproductdiscounter.service.users.AuthenticationService;
+import com.codecool.seasonalproductdiscounter.ui.StatisticsUi;
 import com.codecool.seasonalproductdiscounter.ui.UiBase;
 
 public class StatisticsUiFactory extends UiFactoryBase{
@@ -14,11 +15,11 @@ public class StatisticsUiFactory extends UiFactoryBase{
 
     @Override
     public String getUiName() {
-        return "St
+        return "Statistics";
     }
 
     @Override
     public UiBase create() {
-        return null;
+        return new StatisticsUi(authenticationService, productStatistics, getUiName());
     }
 }
