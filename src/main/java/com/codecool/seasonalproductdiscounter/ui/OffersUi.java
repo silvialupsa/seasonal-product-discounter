@@ -9,7 +9,7 @@ import java.time.LocalDate;
 public class OffersUi extends UiBase{
     private final OfferService offerService;
     public OffersUi(AuthenticationService authenticationService, String title, OfferService offerService) {
-        super(authenticationService, title);
+        super(authenticationService, title, authenticationNeeded);
         this.offerService = offerService;
     }
 

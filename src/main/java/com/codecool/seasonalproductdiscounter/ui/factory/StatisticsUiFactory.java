@@ -20,6 +20,7 @@ public class StatisticsUiFactory extends UiFactoryBase{
 
     @Override
     public UiBase create() {
-        return new StatisticsUi(authenticationService, productStatistics, getUiName());
+        boolean authenticationNeeded = true;
+        return new StatisticsUi(productStatistics, getUiName(), authenticationNeeded);
     }
 }
