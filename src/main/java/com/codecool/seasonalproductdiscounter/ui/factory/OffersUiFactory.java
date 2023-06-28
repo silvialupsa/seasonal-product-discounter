@@ -14,7 +14,7 @@ public class OffersUiFactory extends UiFactoryBase{
 
     @Override
     public String getUiName() {
-        return null;
+        return "Offers";
     }
 
     @Override
