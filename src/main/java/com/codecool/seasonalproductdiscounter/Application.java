@@ -38,6 +38,8 @@ public class Application {
         {
             ui.displayTitle();
             ui.run();
+        } else {
+            System.out.println("Your username or password is not correct.");
         }
         System.out.println("Press any key to exit.");
         new Scanner(System.in).nextLine();
