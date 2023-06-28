@@ -10,27 +10,26 @@ import java.util.Scanner;
 
 public class UiSelector {
     private final List<UiFactoryBase> factories;
-    private final AuthenticationService authenticationService;
 
-    public UiSelector(List<UiFactoryBase> factories, AuthenticationService authenticationService) {
+    public UiSelector(List<UiFactoryBase> factories) {
         this.factories = factories;
-        this.authenticationService = authenticationService;
+
     }
 
     public UiBase select() {
         System.out.println("Welcome to Seasonal Product Discounter v3");
 
-//        authenticationService.authenticate();
         displayMenu();
-        getIntInput();
-        //...
-        return null;
+        UiFactoryBase theChosenFactory = factories.get(getIntInput()-1);
+        System.out.println("You chose " + theChosenFactory.getUiName());
+        return theChosenFactory.create();
     }
 
     private void displayMenu() {
         System.out.println("Available screens:");
-
-        //...
+        for (int i=0; i < factories.size(); i++){
+            System.out.println(String.format("%s. %s", i+1, factories.get(i).getUiName()));
+        }
     }
 
     private static int getIntInput() {

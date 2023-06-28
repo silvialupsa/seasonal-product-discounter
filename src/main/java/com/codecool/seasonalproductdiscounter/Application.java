@@ -24,13 +24,15 @@ public class Application {
         OfferService offerService = new OfferServiceImpl(productProvider.getProducts());
         AuthenticationService authenticationService = new AuthentificationServiceImpl();
         ProductsUiFactory productsUiFactory = new ProductsUiFactory(authenticationService, productBrowser);
-
+        OffersUiFactory offersUiFactory = new OffersUiFactory(authenticationService,offerService);
+        StatisticsUiFactory statisticsUiFactory = new StatisticsUiFactory(authenticationService,productStatistics);
 
         List<UiFactoryBase> factories = new ArrayList<>();
         factories.add(productsUiFactory);
+        factories.add(offersUiFactory);
+        factories.add(statisticsUiFactory);
 
-
-        UiSelector uiSelector = new UiSelector(factories, authenticationService);
+        UiSelector uiSelector = new UiSelector(factories);
         UiBase ui = uiSelector.select();
         if (ui.authenticate())
         {
