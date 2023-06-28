@@ -26,8 +26,18 @@ public abstract class UiBase {
     }
 
     protected User getUser() {
-        // ...
-        return null;
+        Scanner myObj = new Scanner(System.in);
+        System.out.println("Enter username");
+
+        String userName = myObj.nextLine();
+        System.out.println("Username is: " + userName);
+
+        Scanner myObj2 = new Scanner(System.in);
+        System.out.println("Enter password");
+
+        String password = myObj2.nextLine();
+        System.out.println("Your password is: " + password);
+        return new User(userName, password);
     }
 
     public void displayTitle() {
@@ -36,7 +46,9 @@ public abstract class UiBase {
 
     public boolean authenticate() {
         User user = getUser();
-        // ...
+        if(authenticationService.authenticate(user)){
+            return true;
+        }
         return false;
     }
 

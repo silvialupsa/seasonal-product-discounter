@@ -15,7 +15,7 @@ public class UiSelector {
     public UiBase select() {
         System.out.println("Welcome to Seasonal Product Discounter v3");
         displayMenu();
-
+        getIntInput();
         //...
         return null;
     }
@@ -27,8 +27,7 @@ public class UiSelector {
     }
 
     private static int getIntInput() {
-
-        //...
+    
         return 0;
     }
 }

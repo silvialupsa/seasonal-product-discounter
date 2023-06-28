@@ -11,6 +11,7 @@ import com.codecool.seasonalproductdiscounter.ui.factory.*;
 import com.codecool.seasonalproductdiscounter.ui.selector.UiSelector;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -22,7 +23,7 @@ public class Application {
         DiscountProvider discountProvider = new DiscountProviderImpl();
         DiscountService discounterService = new DiscountServiceImpl(discountProvider);
         OfferService offerService = new OfferServiceImpl(productProvider.getProducts());
-        AuthenticationService authenticationService = null;
+        AuthenticationService authenticationService = new AuthentificationServiceImpl();
         ProductsUiFactory productsUiFactory = new ProductsUiFactory(authenticationService, productBrowser);
 
 
