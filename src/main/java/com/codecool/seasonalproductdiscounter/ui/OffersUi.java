@@ -8,8 +8,8 @@ import java.time.LocalDate;
 
 public class OffersUi extends UiBase{
     private final OfferService offerService;
-    public OffersUi(AuthenticationService authenticationService, String title, OfferService offerService) {
-        super(authenticationService, title, authenticationNeeded);
+    public OffersUi(String title, OfferService offerService, boolean authenticationNeeded) {
+        super(title, authenticationNeeded);
         this.offerService = offerService;
     }
 
@@ -18,5 +18,10 @@ public class OffersUi extends UiBase{
         for(Offer offer : offerService.getOffers(LocalDate.now())){
             System.out.println(String.format("Offer: %s", offer));
         }
+    }
+
+    @Override
+    public boolean authenticate() {
+        return false;
     }
 }

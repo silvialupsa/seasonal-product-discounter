@@ -20,6 +20,7 @@ public class OffersUiFactory extends UiFactoryBase{
 
     @Override
     public UiBase create() {
-        return new OffersUi(authenticationService, getUiName(), offerService);
+        boolean authenticationNeeded = false;
+        return new OffersUi(getUiName(), offerService, authenticationNeeded);
     }
 }
