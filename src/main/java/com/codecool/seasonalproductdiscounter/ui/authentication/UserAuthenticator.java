@@ -24,14 +24,13 @@ public class UserAuthenticator {
         return input;
     }
 
-    protected User getUser() {
+    public User getUser() {
         String userName = getTextInput("Enter username");
         String password = getTextInput("Enter password");
         return new User(userName, password);
     }
 
-    public boolean authenticate() {
-        User user = getUser();
+    public boolean authenticate(User user) {
         if(authenticationService.authenticate(user)){
             return true;
         }

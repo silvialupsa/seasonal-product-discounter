@@ -21,7 +21,7 @@ public class UiSelector {
 
         displayMenu();
         UiFactoryBase theChosenFactory = factories.get(getIntInput()-1);
-        System.out.println("You chose " + theChosenFactory.getUiName());
+
         return theChosenFactory.create();
     }
 

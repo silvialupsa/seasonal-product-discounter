@@ -7,6 +7,7 @@ import com.codecool.seasonalproductdiscounter.service.products.provider.RandomPr
 import com.codecool.seasonalproductdiscounter.service.products.statistics.*;
 import com.codecool.seasonalproductdiscounter.service.users.*;
 import com.codecool.seasonalproductdiscounter.ui.UiBase;
+import com.codecool.seasonalproductdiscounter.ui.authentication.UserAuthenticator;
 import com.codecool.seasonalproductdiscounter.ui.factory.*;
 import com.codecool.seasonalproductdiscounter.ui.selector.UiSelector;
 
@@ -26,7 +27,7 @@ public class Application {
         ProductsUiFactory productsUiFactory = new ProductsUiFactory(authenticationService, productBrowser);
         OffersUiFactory offersUiFactory = new OffersUiFactory(authenticationService,offerService);
         StatisticsUiFactory statisticsUiFactory = new StatisticsUiFactory(authenticationService,productStatistics);
-
+        UserAuthenticator userAuthenticator = new UserAuthenticator(authenticationService);
         List<UiFactoryBase> factories = new ArrayList<>();
         factories.add(productsUiFactory);
         factories.add(offersUiFactory);
@@ -34,12 +35,15 @@ public class Application {
 
         UiSelector uiSelector = new UiSelector(factories);
         UiBase ui = uiSelector.select();
-        if (ui.authenticate())
+        if (!ui.isAuthenticationNeeded())
         {
             ui.displayTitle();
             ui.run();
         } else {
-            System.out.println("Your username or password is not correct.");
+            if(userAuthenticator.authenticate(userAuthenticator.getUser())){
+                ui.displayTitle();
+                ui.run();
+            }
         }
         System.out.println("Press any key to exit.");
         new Scanner(System.in).nextLine();
